@@ -1,0 +1,28 @@
+{
+	"manifest_version" : 2,
+
+	"name" : "Select To Translate English to Vietnamese",
+	"description" : "This extension is to translate a english word when you select a word or a phrase (by double click or select ...) to Vietnamese on Google Chrome",
+	"version" : "1.0.0",
+
+	"browser_action":{
+		"default_icon" : "./images/icon_20.png",
+		"default_title" : "Go to homepage"
+	},
+
+	"background": {
+      "scripts": [ "js/background.js" ],
+      "persistent" : false
+   },
+
+	"content_scripts" : [
+		{
+			"js": [ "js/content_script.js" ],
+      		"matches": [ "<all_urls>" ],
+      		"run_at": "document_start",
+      		"all_frames": true
+		}
+	],
+
+	"permissions": [ "tabs", "activeTab", "<all_urls>"]
+}
